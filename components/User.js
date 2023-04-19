@@ -1,30 +1,31 @@
-import React from 'react';
 import { PropTypes } from 'prop-types';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
 
-function User({
-  name, email, image, lastLogin,
-}) {
+export default function User({ userObj }) {
   return (
-    <>
-      <div>User</div>
-      <div>Name: {name}</div>
-      <div>Email: {email}</div>
-      <div>Image: {image}</div>
-      <div>Last Login: {lastLogin} </div>
-    </>
+    <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src={userObj.photoURL} />
+      <Card.Body>
+        <Card.Title>{userObj.displayName}</Card.Title>
+        <Card.Text>
+          {userObj.email}
+        </Card.Text>
+      </Card.Body>
+      <ListGroup className="list-group-flush">
+        <ListGroup.Item>Last Sign In: {userObj.metadata.lastSignInTime}</ListGroup.Item>
+      </ListGroup>
+    </Card>
   );
 }
 
 User.propTypes = {
-  name: PropTypes.string,
-  email: PropTypes.string,
-  image: PropTypes.string,
-  lastLogin: PropTypes.string,
-};
-
-User.defaultProps = {
-  name: 'Default Name',
-  email: 'Default Email',
-  image: 'Default Image',
-  lastLogin: 'Default Time',
+  userObj: PropTypes.shape({
+    photoURL: PropTypes.string,
+    displayName: PropTypes.string,
+    email: PropTypes.string,
+    metadata: PropTypes.shape({
+      lastSignInTime: PropTypes.string,
+    }),
+  }).isRequired,
 };
