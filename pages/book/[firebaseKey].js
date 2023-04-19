@@ -7,10 +7,10 @@ export default function ViewBook() {
   const [bookDetails, setBookDetails] = useState({});
   const router = useRouter();
 
-  // TODO: grab firebaseKey from url
+  // grab firebaseKey from url
   const { firebaseKey } = router.query;
 
-  // TODO: make call to API layer to get the data
+  // make call to API layer to get the data
   useEffect(() => {
     viewBookDetails(firebaseKey).then(setBookDetails);
   }, [firebaseKey]);
@@ -23,9 +23,12 @@ export default function ViewBook() {
       <div className="text-white ms-5 details">
         <h5>
           {bookDetails.title} by {bookDetails.authorObject?.first_name} {bookDetails.authorObject?.last_name}
-          {bookDetails.authorObject?.favorite ? ' 🤍' : ''}
+          {bookDetails.authorObject?.favorite ? ' 💚' : ''}
+          <br />
+          <br />
         </h5>
         Author Email: <a href={`mailto:${bookDetails.authorObject?.email}`}>{bookDetails.authorObject?.email}</a>
+        <hr />
         <p>{bookDetails.description || ''}</p>
         <hr />
         <p>
