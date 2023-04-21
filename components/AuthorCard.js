@@ -15,13 +15,13 @@ function AuthorCard({ authorObj, onUpdate }) {
   };
 
   return (
-    <Card style={{ width: '18rem', margin: '10px' }}>
+    <Card style={{ width: '18rem', margin: '10px', backgroundColor: 'gainsboro' }}>
       <Card.Body>
-        <Card.Title>{authorObj.first_name}{authorObj.last_name}</Card.Title>
+        <Card.Title>{authorObj.first_name} {authorObj.last_name}</Card.Title>
         <p className="card-text bold">{authorObj.favorite ? 'FAVORITE ⭐' : ''}</p>
         {/* DYNAMIC LINK TO VIEW THE AUTHOR DETAILS  */}
         <Link href={`/author/${authorObj.firebaseKey}`} passHref>
-          <Button variant="primary" className="m-2">VIEW</Button>
+          <Button variant="success" className="m-2">VIEW</Button>
         </Link>
         {/* DYNAMIC LINK TO EDIT THE AUTHOR DETAILS  */}
         <Link href={`/author/edit/${authorObj.firebaseKey}`} passHref>

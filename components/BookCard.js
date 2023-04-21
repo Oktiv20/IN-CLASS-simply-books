@@ -17,7 +17,7 @@ function BookCard({ bookObj, onUpdate }) {
   return (
     <Card style={
       {
-        width: '25%', height: '60%', textAlign: 'center', margin: '20px auto ',
+        width: '25%', height: '60%', textAlign: 'center', margin: '20px auto', backgroundColor: 'gainsboro',
       }
 }
     >
@@ -27,7 +27,7 @@ function BookCard({ bookObj, onUpdate }) {
         <p className="card-text bold">{bookObj.sale && <span>SALE<br /></span> } ${bookObj.price}</p>
         {/* DYNAMIC LINK TO VIEW THE BOOK DETAILS  */}
         <Link href={`/book/${bookObj.firebaseKey}`} passHref>
-          <Button variant="primary" className="m-2">VIEW</Button>
+          <Button variant="success" className="m-2">VIEW</Button>
         </Link>
         {/* DYNAMIC LINK TO EDIT THE BOOK DETAILS  */}
         <Link href={`/book/edit/${bookObj.firebaseKey}`} passHref>
