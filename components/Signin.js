@@ -11,6 +11,7 @@ function Signin() {
         padding: '30px',
         maxWidth: '400px',
         margin: '0 auto',
+        color: 'white',
       }}
     >
       <h1>WELCOME TO SIMPLY BOOKS!</h1>
